@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BD Pitch User Manual</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5c6b80;
+      --line: #e4e9f2;
+      --bg: #f6f8fb;
+      --card: #fff;
+      --blue: #1677ff;
+      --blue-soft: #e8f1ff;
+      --green: #0f7b4c;
+      --green-soft: #e7f6ee;
+      --amber: #8a5a00;
+      --amber-soft: #fff6e5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 40px 24px 80px; }
+    header.hero {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin-bottom: 28px;
+    }
+    .eyebrow { color: var(--blue); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: 12px; }
+    h1 { font-size: 36px; line-height: 1.15; margin: 8px 0 10px; }
+    h2 { font-size: 26px; margin: 0 0 10px; }
+    h3 { font-size: 18px; margin: 22px 0 8px; }
+    p { margin: 0 0 12px; }
+    a { color: var(--blue); }
+    .meta { color: var(--muted); font-size: 14px; }
+    nav.toc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      margin-top: 18px;
+    }
+    nav.toc a { text-decoration: none; }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 18px 0;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 16px 0 6px;
+    }
+    .step {
+      background: var(--blue-soft);
+      border-radius: 12px;
+      padding: 12px;
+      min-height: 92px;
+    }
+    .step b { display: block; color: var(--blue); font-size: 12px; margin-bottom: 4px; }
+    figure { margin: 16px 0; }
+    img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: block;
+    }
+    figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; }
+    ol.steps { margin: 8px 0 0; padding-left: 22px; }
+    ol.steps li { margin: 0 0 12px; }
+    .see {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); padding: 10px 8px; }
+    th { font-size: 13px; color: var(--muted); font-weight: 650; }
+    .pill { display: inline-block; background: #f3e8ff; color: #5b2d9b; border-radius: 999px; padding: 2px 8px; font-size: 13px; font-weight: 650; }
+    .note, .check {
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+    .note { background: var(--amber-soft); color: #5c4308; }
+    .check { background: var(--green-soft); color: #145c38; }
+    .check strong, .note strong { display: block; margin-bottom: 2px; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { margin: 4px 0; }
+    @media (max-width: 800px) {
+      .flow, nav.toc { grid-template-columns: 1fr; }
+      header.hero, section { padding: 20px; }
+    }
+    @media print {
+      body { background: #fff; }
+      section, header.hero { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">BD Pitch</div>
+      <h1>User manual</h1>
+      <p>Use this guide to create a lead list, review what came back, and decide when the project is finished. The same steps are the acceptance path: each action says what you should see.</p>
+      <p class="meta">Open the product at <a href="https://bd-opportunity-dashboard.vercel.app/index.html">bd-opportunity-dashboard.vercel.app</a>. Reviewed 10 October 2026. Screenshots are from the live Projects, Lead Discovery, and Market Insights screens.</p>
+      <nav class="toc">
+        <a href="#start">1. Start here</a>
+        <a href="#list">2. Find a project</a>
+        <a href="#create">3. Create a project</a>
+        <a href="#read">4. Read the result</a>
+        <a href="#work">5. Work the list</a>
+        <a href="#markers">6. APN and Insight</a>
+        <a href="#entities">7. Companies, People, and Jobs</a>
+        <a href="#more">8. Refresh, Find more, Enrich</a>
+        <a href="#insights">9. Market Insights</a>
+        <a href="#accept">10. Acceptance checklist</a>
+        <a href="#trouble">11. If something looks wrong</a>
+      </nav>
+    </header>
+
+    <section id="start">
+      <h2>1. Start here</h2>
+      <p>BD Pitch turns a business request into a saved list of companies, people, or job postings. Write the request in the language you work in. English and Chinese are both supported, and the product does not limit the language. The AI reads the request as you wrote it and uses that analysis to search for the companies, people, or jobs you asked for.</p>
+      <p>A finished search is not a finished project. <span class="pill">To Review</span> means the system has stopped and the list is ready for a person. <strong>Completed</strong> happens only when you choose <strong>Mark completed</strong>.</p>
+      <div class="flow">
+        <div class="step"><b>1</b>Open Projects</div>
+        <div class="step"><b>2</b>New project</div>
+        <div class="step"><b>3</b>Write the request</div>
+        <div class="step"><b>4</b>Review the rows</div>
+        <div class="step"><b>5</b>Mark completed</div>
+      </div>
+      <div class="check"><strong>Check</strong>You can sign in, see Projects, and the left navigation shows Insights and Projects.</div>
+    </section>
+
+    <section id="list">
+      <h2>2. Find a project</h2>
+      <p>Projects opens on <strong>Lead Discovery</strong>. Intelligence Stream is visible and disabled. That tab is not part of this workflow.</p>
+      <figure>
+        <img src="manual-assets/projects.png" alt="Projects list showing Lead Discovery, search, filter, status, and lead counts" />
+        <figcaption>The project list. Each row shows the status, the lead count, and the APN and Insight marks.</figcaption>
+      </figure>
+      <ol class="steps">
+        <li>Select <strong>Projects</strong>.
+          <span class="see">You should see search, Filter, a time range, and <strong>New project</strong>.</span></li>
+        <li>Search by project name or by the words in the monitoring request. Use Filter for Running, To Review, or Completed. Use the time menu for All time, Last 30 days, or Last 7 days.
+          <span class="see">The list narrows. The saved projects do not change.</span></li>
+        <li>Select a project name to open it.</li>
+      </ol>
+      <h3>How to read a row</h3>
+      <table>
+        <tr><th>What you see</th><th>What it means</th></tr>
+        <tr><td>Companies, People, or Jobs</td><td>The kind of record in that project.</td></tr>
+        <tr><td><span class="pill">To Review</span></td><td>The run has finished. A person still needs to review it.</td></tr>
+        <tr><td>The number</td><td>How many leads are saved.</td></tr>
+        <tr><td>The triangle mark</td><td>How many leads already match an internal APN company or person. See <a href="#markers">APN and Insight</a>.</td></tr>
+        <tr><td>The sparkle mark</td><td>How many companies have a target or similar-company insight. See <a href="#markers">APN and Insight</a>.</td></tr>
+        <tr><td>Names under the row</td><td>The owner and the people who can see the project.</td></tr>
+      </table>
+      <p>The status sentence under the title tells you what still needs attention. Examples you will actually see: an ambiguous company match, a missing APN connection, or a Find more that was stopped with the saved rows kept.</p>
+    </section>
+
+    <section id="create">
+      <h2>3. Create a project</h2>
+      <figure>
+        <img src="manual-assets/new-project.png" alt="Create lead discovery project dialog with Companies, Jobs, and People" />
+        <figcaption>New project. Choose the entity, write the request, then Start monitoring.</figcaption>
+      </figure>
+      <ol class="steps">
+        <li>Select <strong>New project</strong>.
+          <span class="see">The dialog title is “Create lead discovery project.”</span></li>
+        <li>Choose <strong>Companies</strong>, <strong>Jobs</strong>, or <strong>People</strong>. This choice decides the columns you get later.</li>
+        <li>Write the monitoring request in Chinese, English, or another language. A useful request names the quantity, who you want, the place, the hard requirements, and anything you only want reported.
+          <span class="see">The labels under the box suggest what to include. For companies they are Industry, Location, Company criteria, Hiring activity, and Key contacts. They change when you switch entity. The AI analyzes the text you entered.</span></li>
+        <li>Select <strong>Start monitoring</strong>.
+          <span class="see">The button stays inactive until the request has text. The product writes the project title and the monitoring scope for you.</span></li>
+      </ol>
+      <div class="note"><strong>Say what must be true, and what you only want reported.</strong> “Find companies with an office in France” is a requirement. “Also report whether they are hiring” is a signal. A hiring signal does not remove a company from the list unless you make hiring a requirement.</div>
+      <div class="check"><strong>Check</strong>The new project appears with the entity you chose. After you reload, the same project and its saved rows are still there.</div>
+    </section>
+
+    <section id="read">
+      <h2>4. Read the result</h2>
+      <p>Open the project from the list. The breadcrumb is <strong>Projects / Lead Discovery</strong>. The title can be renamed with the pencil. The sentence under the title is the monitoring scope.</p>
+      <table>
+        <tr><th>Status</th><th>What you do</th></tr>
+        <tr><td>Running</td><td>Wait. The progress line shows what is still being collected. The table can still change.</td></tr>
+        <tr><td>To Review</td><td>Read the rows and the status sentence. A warning can sit next to a usable list. That is still a finished run.</td></tr>
+        <tr><td>Completed</td><td>Someone chose <strong>Mark completed</strong>. It stays completed until a new sourcing run starts. <strong>Reopen for review</strong> brings it back.</td></tr>
+      </table>
+      <div class="check"><strong>Check</strong>Running is only used while the result can still change. To Review appears when the search and its checks have stopped, including when a provider or APN step stopped and the reason is on screen. Completed does not appear by itself.</div>
+    </section>
+
+    <section id="work">
+      <h2>5. Work the list</h2>
+      <p>The results page has <strong>6 operations</strong>. They fall into two groups. The first four change what you see and leave the saved rows in place. The last two are how you work a row. APN and Insight are in the next section.</p>
+      <table>
+        <tr><th></th><th>Operation</th><th>Group</th><th>What you use it for</th></tr>
+        <tr><td>1</td><td>Search</td><td>Look at the list</td><td>Find text in the current rows.</td></tr>
+        <tr><td>2</td><td>Columns</td><td>Look at the list</td><td>Show or hide fields.</td></tr>
+        <tr><td>3</td><td>Filter</td><td>Look at the list</td><td>Narrow the rows by the groups for this entity.</td></tr>
+        <tr><td>4</td><td>Search strategy</td><td>Look at the list</td><td>Read how the request was interpreted. You cannot edit it yet.</td></tr>
+        <tr><td>5</td><td>Outreached</td><td>Work a row</td><td>Show only the rows you have flagged.</td></tr>
+        <tr><td>6</td><td>Outreach</td><td>Work a row</td><td>Open a row from its flag. Outreach contains Generate outreach, Notes, and Labels.</td></tr>
+      </table>
+      <figure>
+        <img src="manual-assets/company-results.png" alt="Company results table with search, columns, filter, search strategy, and outreach controls" />
+        <figcaption>The results toolbar holds Search, Columns, Filter, Search strategy, and Outreached. The flag in the first column opens Outreach.</figcaption>
+      </figure>
+      <p>The line above the table is the size of the saved result, such as “41 companies · 27 contacts.”</p>
+
+      <h3>Search</h3>
+      <p>The search box matches the text on the current rows. On a company project the placeholder is “Search company, product, location, or contact.” While a search is active, the count above the table changes from the full size, such as “41 companies,” to the matches, such as “1 of 41 companies.” Clear the box and the full saved list comes back.</p>
+
+      <h3>Columns</h3>
+      <figure>
+        <img src="manual-assets/columns.png" alt="Choose visible columns panel with Company fixed and the other fields checked" />
+        <figcaption>Columns. Company stays fixed. The other fields can be shown or hidden.</figcaption>
+      </figure>
+      <ol class="steps">
+        <li>Select <strong>Columns</strong>. The panel title is “Choose visible columns.”</li>
+        <li>The primary column is locked: Company, Name, or Job Title, depending on the project.</li>
+        <li>Check or uncheck the groups you need. On a company project those groups include Company data, People data, and Hiring signal. <strong>Show all</strong> and <strong>Hide optional</strong> set the optional fields together.</li>
+        <li>Select <strong>Apply columns</strong>.
+          <span class="see">The table columns change. The saved values stay. Reload and the same columns are still visible.</span></li>
+      </ol>
+
+      <h3>Filter</h3>
+      <figure>
+        <img src="manual-assets/filter.png" alt="Filter company opportunities panel with result confidence, presence, job postings, LinkedIn People, history, intelligence, and custom labels" />
+        <figcaption>Filter. The groups belong to the entity you opened. Apply filters narrows the rows on screen.</figcaption>
+      </figure>
+      <p>Select <strong>Filter</strong>. The help line says filters narrow the current result set and leave the project criteria unchanged. Select <strong>Apply filters</strong> when the groups are set.</p>
+      <table>
+        <tr><th>Entity</th><th>Filter groups you can use</th></tr>
+        <tr><td>Companies</td><td>Result confidence, European presence, job postings, LinkedIn People, cross-project history, additional filters, internal intelligence, and custom user labels. A local-entity group appears when the project asked for a local legal entity.</td></tr>
+        <tr><td>People</td><td>LinkedIn profile, work email or phone, language, Director+ seniority, new sourced profile, and APN or duplicate profile, plus internal intelligence and custom user labels.</td></tr>
+        <tr><td>Jobs</td><td>Company, active jobs, official source, language specified, posting date, plus internal intelligence and custom user labels.</td></tr>
+      </table>
+      <div class="check"><strong>Check</strong>After Apply filters, the visible count changes and the saved project still has the same rows. Clear the filter and the full list returns.</div>
+
+      <h3>Search strategy</h3>
+      <figure>
+        <img src="manual-assets/search-strategy.png" alt="Search strategy drawer showing the original request and read-only qualification criteria" />
+        <figcaption>Search strategy displays the request and the qualification rules. The request and the priority control cannot be edited in this release.</figcaption>
+      </figure>
+      <ol class="steps">
+        <li>Select <strong>Search strategy</strong>. The title is “Prompt and qualification criteria.”</li>
+        <li>Read <strong>Original request</strong>. It is the monitoring request that was saved.</li>
+        <li>Read <strong>Qualification criteria</strong>. Each rule has a priority such as Required, High priority, or Opportunity signal.</li>
+        <li>Read <strong>Active enrichments</strong>. Refresh keeps using this saved strategy.</li>
+      </ol>
+      <div class="note"><strong>This release only displays the strategy.</strong> Changing the prompt criteria from this panel is a later prospecting feature. When that exists, a change will be versioned and launched as its own search. Until then, the request box is read-only and the priority control is disabled.</div>
+
+      <h3>Outreached</h3>
+      <p><strong>Outreached</strong> is the toolbar control for rows you have already flagged. The number on the button is the flagged count. Select it to show only those rows, and select it again to return to the full list. Reload the project and confirm the flag is still there.</p>
+
+      <h3>Outreach</h3>
+      <p>Outreach is the panel for one row. In the picture below, the red outline marks the flag in the first column. That outline is only in this guide. In the product, click the flag icon itself. Clicking it marks the row and opens the panel.</p>
+      <p>The panel has two parts and three features. <strong>Generate outreach</strong> is the first part, and it has three steps. <strong>Notes</strong> and <strong>Labels</strong> are the second part.</p>
+      <figure>
+        <img src="manual-assets/outreach.png?v=2" alt="Full results page. A red outline marks the flag on Stream Data Centers, and the outreach panel is open beside the table." />
+        <figcaption>The red outline is the flag in the first column. Click that flag to mark the row and open the outreach panel beside the table.</figcaption>
+      </figure>
+
+      <h3>Generate outreach</h3>
+      <p>The first part of the panel builds the message in three steps.</p>
+      <ol class="steps">
+        <li><strong>Select Contact.</strong> Choose the person on this row, then choose a channel that the contact already has, such as email, LinkedIn, or phone.</li>
+        <li><strong>Candidate Pitch.</strong> This is where you will choose a candidate to pitch. That choice is not available in this release, because candidates are not linked here yet. The panel stays on “Context only — no candidate pitch,” and the message uses the company and the contact. Linking a candidate is planned for later.</li>
+        <li><strong>Personalized Outreach.</strong> After a contact and a channel are selected, this step writes the message for that contact. <strong>Personalize with AI</strong> drafts it. The language control writes it in English or Chinese. <strong>Regenerate with AI</strong> rewrites a draft you already have. Drafting stays in this panel. Sending the message is a separate action, and this guide does not cover sending.</li>
+      </ol>
+
+      <h3>Notes and Labels</h3>
+      <p>The second part of the same panel is where you record your own follow-up.</p>
+      <ul>
+        <li><strong>Notes.</strong> Write follow-up notes, customer feedback, or the next step. The note auto-saves as you type.</li>
+        <li><strong>Labels.</strong> Open <strong>Add labels</strong>. Choose an existing label, or type a new one and pick one of the five colors. The label appears on the row. In <strong>Filter</strong>, Custom user labels can show only the rows that carry a selected label. A label and the Outreached flag stay separate: a label does not flag the row, and a flag does not create a label.</li>
+      </ul>
+      <div class="check"><strong>Check</strong>Search, Filter, and Columns change the view. The saved rows remain. After you flag a row, Outreached includes it, and the flag is still there after reload. A label applied in the panel is still on the row after reload.</div>
+    </section>
+
+    <section id="markers">
+      <h2>6. APN and Insight</h2>
+      <p>APN and Insight run on the saved rows after the search. The two marks on the toolbar, and the same two marks on each project in the project list, are their counts.</p>
+      <figure>
+        <img src="manual-assets/company-results.png" alt="Company toolbar with the APN triangle and the Insight sparkle" />
+        <figcaption>The triangle is APN. The sparkle is Insight. Select a mark to show only the rows that carry it.</figcaption>
+      </figure>
+
+      <table>
+        <tr><th></th><th>APN</th><th>Insight</th></tr>
+        <tr><td>What it checks</td><td>Whether this company or person is already an APN record, so a duplicate is recognized.</td><td>Whether a saved company resembles companies from recent APN delivery.</td></tr>
+        <tr><td>Applies to</td><td>Companies and people.</td><td>Companies. On a jobs project, the check uses the employer company. A people project has no insight count.</td></tr>
+        <tr><td>A match</td><td>An existing APN company or person. It is included in the triangle count.</td><td>A target or similar company. It is included in the sparkle count.</td></tr>
+        <tr><td>A zero</td><td>No confirmed APN match. The status sentence says whether the check finished, the name was ambiguous, or APN is waiting for a connection. An ambiguous company stays in the list and is not counted as existing.</td><td>No target or similar company on this project.</td></tr>
+        <tr><td>On the row</td><td>The triangle marks a confirmed company or person.</td><td>The sparkle on a company name opens that company’s delivery evidence.</td></tr>
+        <tr><td>On the toolbar</td><td>Select the triangle to show only confirmed APN matches. Select it again to show every row.</td><td>Select the sparkle to show only insight matches. Select it again to show every row.</td></tr>
+      </table>
+      <div class="check"><strong>Check</strong>On a company project, the triangle count matches the confirmed APN companies and the sparkle count matches the companies with insight. Selecting either mark filters the table, and selecting it again shows every row.</div>
+    </section>
+
+    <section id="entities">
+      <h2>7. Companies, People, and Jobs</h2>
+      <p>The buttons on the results page are the same. The rows are not.</p>
+      <table>
+        <tr><th>Entity</th><th>One row is</th><th>Look for</th></tr>
+        <tr><td>Companies</td><td>One company</td><td>Website, location, product, contacts, hiring, job postings, and why it was selected. APN and similar-company marks apply here.</td></tr>
+        <tr><td>People</td><td>One person</td><td>Company, title, location, profile, and contact fields. If APN is not connected, the status says so and the person row still stays in the list.</td></tr>
+        <tr><td>Jobs</td><td>One open posting</td><td>Employer, title, location, date, source, and whether the posting is still open. The employer is kept separate from the page that published the job.</td></tr>
+      </table>
+      <div class="note"><strong>LinkedIn on a company row is not a separate LinkedIn login.</strong> Company LinkedIn, LinkedIn People, and LinkedIn Insight are fields on the row. People and Insight values come from saved snapshots. A public LinkedIn page can also be found during search. You do not connect a LinkedIn API to use the current project.</div>
+      <div class="check"><strong>Check</strong>A company row can be opened to its evidence and contacts. A people row is one person. A jobs row is one posting, with the employer named separately from the source page.</div>
+    </section>
+
+    <section id="more">
+      <h2>8. Refresh, Find more, and Enrich</h2>
+      <p>Use these when the saved list needs a change. Each one does a different job. Refresh rechecks rows you already have. Find more looks for additional rows. Enrich adds one new column.</p>
+      <h3>Refresh</h3>
+      <figure>
+        <img src="manual-assets/refresh-smart.png" alt="Refresh project data dialog with Smart Refresh selected" />
+        <figcaption>Smart Refresh is the recommended method. It rechecks missing, stale, or unverified fields and reuses data that was verified recently.</figcaption>
+      </figure>
+      <p>The refresh icon is at the top of the project, beside Project history. The dialog title is “Refresh project data.” It updates saved records. It does not look for new companies, people, or jobs, and it does not change workspace settings.</p>
+      <table>
+        <tr><th>Method</th><th>What it rechecks</th></tr>
+        <tr><td>Smart Refresh</td><td>Missing, stale, or unverified fields. Recently verified data is reused. This is the default.</td></tr>
+        <tr><td>Selected fields</td><td>Only the fields you tick. On a company project those include Website, Company LinkedIn, Core product, Industry, Location, Founded date, Company size, Contacts, Active Hiring, and Job postings.</td></tr>
+        <tr><td>Full Refresh</td><td>Every supported core field. This takes longer and can use more provider requests.</td></tr>
+      </table>
+      <figure>
+        <img src="manual-assets/refresh-selected.png" alt="Refresh dialog with Selected fields chosen and the field checklist open" />
+        <figcaption>Selected fields opens the checklist. The button label becomes “Refresh selected fields.”</figcaption>
+      </figure>
+      <ol class="steps">
+        <li>Choose the method.</li>
+        <li>Under <strong>Records</strong>, keep <strong>All saved records</strong>, or choose <strong>Current filtered results</strong> when a search or filter is already applied.</li>
+        <li>The optional source, “Try LinkedIn People first when a Company LinkedIn is already known,” is off unless you turn it on. If that path has nothing to add, the refresh continues on the normal path.</li>
+        <li>Start the refresh and wait until the button returns to the normal refresh icon. Reload the project.
+          <span class="see">The rows stay. Flags, outreach, notes, filters, columns, and enrichment columns stay. A selected field can change. The other fields stay.</span></li>
+      </ol>
+      <h3>Find more</h3>
+      <p><strong>Find more</strong> is on the results toolbar, to the left of Enrich. It has no setup dialog. Selecting it starts a search for up to 10 more records of the same entity. While it is running, the same button stops it. If you stop it, the rows already saved stay, and the project status says the stop preserved them.</p>
+      <h3>Enrich</h3>
+      <figure>
+        <img src="manual-assets/enrich.png" alt="Enrich data dialog with column name, data type, and AI instructions" />
+        <figcaption>Enrich adds one column. Company, People, and Job postings are the three column groups.</figcaption>
+      </figure>
+      <ol class="steps">
+        <li>Select the blue <strong>Enrich</strong> button. The dialog title is “Enrich data.”</li>
+        <li>Choose Company, People, or Job postings. Suggested fields are listed on the left. LinkedIn People and LinkedIn Insight say when they are local validation and the API is not connected.</li>
+        <li>Name the column, choose a data type (Text, Number, Options, Email, or URL), and write the AI instructions.</li>
+        <li>Select <strong>Create column</strong>.
+          <span class="see">The new column appears on the table. The saved rows stay the same.</span></li>
+      </ol>
+      <div class="note"><strong>If the message says no field changes were returned, open the row before you run it again.</strong> The field may already hold the value you expected, so the refresh had nothing new to write. Look at that field on the row, then decide whether to run it again.</div>
+      <div class="check"><strong>Check</strong>A selected refresh does not add rows and does not clear unrelated fields. Stopping Find more or Enrich leaves the saved values in place and shows that the action was stopped.</div>
+    </section>
+
+    <section id="insights">
+      <h2>9. Market Insights</h2>
+      <p>Market Insights is the shared market screen. It pulls insight signals from the BDP common data pool and shows them together: companies, funding, job postings, and people changes. A project’s own lead list stays in that project. These totals are market context, not the pass condition for a project.</p>
+      <figure>
+        <img src="manual-assets/insights.png" alt="Market Insights with search, range filters, signal totals, and a region distribution" />
+        <figcaption>Market Insights. The Range filters and the distribution switch are the market view. A project’s own rows stay in that project.</figcaption>
+      </figure>
+      <h3>What the pool shows</h3>
+      <table>
+        <tr><th>Summary</th><th>What it counts</th></tr>
+        <tr><td>Total Signals</td><td>Insight signals in the current range.</td></tr>
+        <tr><td>Companies</td><td>Companies represented in those signals.</td></tr>
+        <tr><td>Funding Events</td><td>Funding signals in the pool.</td></tr>
+        <tr><td>Job Postings</td><td>Job-posting signals in the pool.</td></tr>
+        <tr><td>People Changes</td><td>People-change signals in the pool.</td></tr>
+      </table>
+      <p>The chart under the totals is new market signals per week. Market Distribution can be switched among Location, Companies, and People. The location view lists the regions with the most activity and each region’s share.</p>
+      <h3>How to narrow it</h3>
+      <ol class="steps">
+        <li>Select <strong>Insights</strong>.</li>
+        <li>Search by company, industry, signal, or account. The second box is the location, starting at Global Regions. <strong>Clear All</strong> resets the search.</li>
+        <li>Use the Range chips: All signals, Client status, Industry, Location / Region, Funding Round, Work Type, Position Type, Signal Type, Source Channel, and Time Range.</li>
+        <li>Switch Market Distribution among Location, Companies, and People. Further down, Market Characteristics lists top industries and top job functions.</li>
+      </ol>
+      <div class="check"><strong>Check</strong>The page opens, the search boxes and Range chips are usable, and the distribution switch changes the view. The pool totals are market context. They are not the pass condition for a project’s lead count.</div>
+    </section>
+
+    <section id="accept">
+      <h2>10. Acceptance checklist</h2>
+      <p>Run this on a project you are allowed to create or refresh. Write down the project name, entity, request, time, and what the status said. Do not send a real outreach message as part of the test.</p>
+      <table>
+        <tr><th>Step</th><th>Do this</th><th>Pass when</th></tr>
+        <tr><td>1</td><td>Open Projects</td><td>Search, Filter, time range, and New project are visible.</td></tr>
+        <tr><td>2</td><td>Create one project. Write the request in English or Chinese.</td><td>It saves with that entity. The AI analyzes the request you wrote.</td></tr>
+        <tr><td>3</td><td>Reload it</td><td>The rows are still there.</td></tr>
+        <tr><td>4</td><td>Watch the status</td><td>Running while the result can still change. To Review when the search and its checks have stopped.</td></tr>
+        <tr><td>5</td><td>Open one row</td><td>You can see the record, a source, and the field you expected for that entity.</td></tr>
+        <tr><td>6</td><td>Search, filter, hide a column, and open Search strategy</td><td>Only the view changes. The saved rows remain. Search strategy shows the request and the criteria, and both stay read-only.</td></tr>
+        <tr><td>7</td><td>Flag and unflag one row</td><td>The Outreached count updates, and the flag is still there after reload.</td></tr>
+        <tr><td>8</td><td>Refresh one selected field</td><td>That field can change. Unrelated fields stay.</td></tr>
+        <tr><td>9</td><td>Mark completed, then reopen</td><td>Completed happens only from that action. Reopen for review returns it to review.</td></tr>
+        <tr><td>10</td><td>Read the APN triangle and the Insight sparkle</td><td>The triangle is confirmed APN companies or people. The sparkle is company insight. A zero is a count, and the status sentence says whether the check finished.</td></tr>
+        <tr><td>11</td><td>Open Insights</td><td>The market view and its Range filters render. Its pool totals are not the project pass condition.</td></tr>
+      </table>
+      <p>Keep a copy of the status sentence, one representative row, and the before-and-after value for the refresh test.</p>
+    </section>
+
+    <section id="trouble">
+      <h2>11. If something looks wrong</h2>
+      <table>
+        <tr><th>What you see</th><th>What to do</th></tr>
+        <tr><td>New project or saving is disabled, and a storage alert is showing</td><td>The workspace cannot be saved right now. Do not start the run again until the alert is gone.</td></tr>
+        <tr><td>To Review, with a warning</td><td>Read the warning and the rows. The run can still be usable.</td></tr>
+        <tr><td>Source unavailable</td><td>That field could not be verified. Leave the reason in place.</td></tr>
+        <tr><td>Connect or reconnect APN</td><td>The list is still there. The person or company match did not finish because the APN connection is missing.</td></tr>
+        <tr><td>Fewer companies than you asked for</td><td>Duplicates and non-company pages can be removed and are not replaced. The status should not claim the full count was reached.</td></tr>
+        <tr><td>No recent hiring evidence</td><td>The hiring check finished without an accepted posting. It is not a blank error.</td></tr>
+        <tr><td>Find more or Enrich was stopped</td><td>The saved rows stay. Read the status before you start again.</td></tr>
+        <tr><td>Refresh says nothing changed</td><td>Open the field you selected before you repeat the refresh.</td></tr>
+      </table>
+    </section>
+  </div>
+</body>
+</html>
