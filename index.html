@@ -114,7 +114,7 @@
       <div class="eyebrow">BD Pitch</div>
       <h1>User manual</h1>
       <p>Use this guide to create a lead list, review what came back, and decide when the project is finished. The same steps are the acceptance path: each action says what you should see.</p>
-      <p class="meta">Open the product at <a href="https://bd-opportunity-dashboard.vercel.app/index.html">bd-opportunity-dashboard.vercel.app</a>. Reviewed 10 October 2026. Screenshots are from the live Projects, Lead Discovery, and Market Insights screens.</p>
+      <p class="meta">Open the product at <a href="https://bd-opportunity-dashboard.vercel.app/index.html">bd-opportunity-dashboard.vercel.app</a>. Reviewed 10 October 2026. Updated 20 October 2026 against the deployed product. Screenshots are from the 10 October review and were kept. Where the text and a screenshot differ, follow the text.</p>
       <nav class="toc">
         <a href="#start">1. Start here</a>
         <a href="#list">2. Find a project</a>
@@ -184,7 +184,7 @@
         <li>Write the monitoring request in Chinese, English, or another language. A useful request names the quantity, who you want, the place, the hard requirements, and anything you only want reported.
           <span class="see">The labels under the box suggest what to include. For companies they are Industry, Location, Company criteria, Hiring activity, and Key contacts. They change when you switch entity. The AI analyzes the text you entered.</span></li>
         <li>Select <strong>Start monitoring</strong>.
-          <span class="see">The button stays inactive until the request has text. The product writes the project title and the monitoring scope for you.</span></li>
+          <span class="see">The button stays inactive until the request has text. The product writes a project title from the request, and the monitoring scope. You can rename the title with the pencil. A title you type yourself is kept.</span></li>
       </ol>
       <div class="note"><strong>Say what must be true, and what you only want reported.</strong> “Find companies with an office in France” is a requirement. “Also report whether they are hiring” is a signal. A hiring signal does not remove a company from the list unless you make hiring a requirement.</div>
       <div class="check"><strong>Check</strong>The new project appears with the entity you chose. After you reload, the same project and its saved rows are still there.</div>
@@ -231,7 +231,7 @@
       <ol class="steps">
         <li>Select <strong>Columns</strong>. The panel title is “Choose visible columns.”</li>
         <li>The primary column is locked: Company, Name, or Job Title, depending on the project.</li>
-        <li>Check or uncheck the groups you need. On a company project those groups include Company data, People data, and Hiring signal. <strong>Show all</strong> and <strong>Hide optional</strong> set the optional fields together.</li>
+        <li>Check or uncheck the groups you need. On a company project those groups include Company data, People data, and Hiring signal. <strong>Active Hiring</strong> is shown on a new company project. <strong>Job postings</strong> is not, unless the request asked for job postings or you turn that column on. A project that already saved its columns keeps that choice, including a Job postings column that was already visible. <strong>Show all</strong> and <strong>Hide optional</strong> set the optional fields together.</li>
         <li>Select <strong>Apply columns</strong>.
           <span class="see">The table columns change. The saved values stay. Reload and the same columns are still visible.</span></li>
       </ol>
@@ -244,7 +244,7 @@
       <p>Select <strong>Filter</strong>. The help line says filters narrow the current result set and leave the project criteria unchanged. Select <strong>Apply filters</strong> when the groups are set.</p>
       <table>
         <tr><th>Entity</th><th>Filter groups you can use</th></tr>
-        <tr><td>Companies</td><td>Result confidence, European presence, job postings, LinkedIn People, cross-project history, additional filters, internal intelligence, and custom user labels. A local-entity group appears when the project asked for a local legal entity.</td></tr>
+        <tr><td>Companies</td><td>Result confidence, European presence, saved job postings, LinkedIn People, cross-project history, additional filters, internal intelligence, and custom user labels. The job-postings filter means the company has at least one saved posting. It does not mean those postings are current. A local-entity group appears when the project asked for a local legal entity.</td></tr>
         <tr><td>People</td><td>LinkedIn profile, work email or phone, language, Director+ seniority, new sourced profile, and APN or duplicate profile, plus internal intelligence and custom user labels.</td></tr>
         <tr><td>Jobs</td><td>Company, active jobs, official source, language specified, posting date, plus internal intelligence and custom user labels.</td></tr>
       </table>
@@ -264,7 +264,7 @@
       <div class="note"><strong>This release only displays the strategy.</strong> Changing the prompt criteria from this panel is a later prospecting feature. When that exists, a change will be versioned and launched as its own search. Until then, the request box is read-only and the priority control is disabled.</div>
 
       <h3>Outreached</h3>
-      <p><strong>Outreached</strong> is the toolbar control for rows you have already flagged. The number on the button is the flagged count. Select it to show only those rows, and select it again to return to the full list. Reload the project and confirm the flag is still there.</p>
+      <p><strong>Outreached</strong> shows companies you flagged and companies where a message was copied or generated. The control names outreached companies, outreached contacts, and generated messages. Those numbers are recorded use. They do not mean a message was sent. Select the control to show only those companies, and select it again to return to the full list. A flag is still there after reload.</p>
 
       <h3>Outreach</h3>
       <p>Outreach is the panel for one row. In the picture below, the red outline marks the flag in the first column. That outline is only in this guide. In the product, click the flag icon itself. Clicking it marks the row and opens the panel.</p>
@@ -279,7 +279,7 @@
       <ol class="steps">
         <li><strong>Select Contact.</strong> Choose the person on this row, then choose a channel that the contact already has, such as email, LinkedIn, or phone.</li>
         <li><strong>Candidate Pitch.</strong> This is where you will choose a candidate to pitch. That choice is not available in this release, because candidates are not linked here yet. The panel stays on “Context only — no candidate pitch,” and the message uses the company and the contact. Linking a candidate is planned for later.</li>
-        <li><strong>Personalized Outreach.</strong> After a contact and a channel are selected, this step writes the message for that contact. <strong>Personalize with AI</strong> drafts it. The language control writes it in English or Chinese. <strong>Regenerate with AI</strong> rewrites a draft you already have. Drafting stays in this panel. Sending the message is a separate action, and this guide does not cover sending.</li>
+        <li><strong>Personalized Outreach.</strong> After a contact and a channel are selected, this step shows a message for that contact. <strong>Personalize with AI</strong> is optional. It drafts a version from the saved context. The language control writes it in English or Chinese. <strong>Regenerate with AI</strong> rewrites a draft you already have. The copy icon copies the message that is on screen, including a template you did not personalize. A copy is remembered for that contact only after the copy succeeds. Copying does not mark the message as sent. Drafting stays in this panel. Sending the message is a separate action, and this guide does not cover sending.</li>
       </ol>
 
       <h3>Notes and Labels</h3>
@@ -301,7 +301,7 @@
 
       <table>
         <tr><th></th><th>APN</th><th>Insight</th></tr>
-        <tr><td>What it checks</td><td>Whether this company or person is already an APN record, so a duplicate is recognized.</td><td>Whether a saved company resembles companies from recent APN delivery.</td></tr>
+        <tr><td>What it checks</td><td>Whether this company or person is already an accepted APN client on the saved project, so an existing relationship is recognized.</td><td>Whether a saved company resembles companies from recent APN delivery.</td></tr>
         <tr><td>Applies to</td><td>Companies and people.</td><td>Companies. On a jobs project, the check uses the employer company. A people project has no insight count.</td></tr>
         <tr><td>A match</td><td>An existing APN company or person. It is included in the triangle count.</td><td>A target or similar company. It is included in the sparkle count.</td></tr>
         <tr><td>A zero</td><td>No confirmed APN match. The status sentence says whether the check finished, the name was ambiguous, or APN is waiting for a connection. An ambiguous company stays in the list and is not counted as existing.</td><td>No target or similar company on this project.</td></tr>
@@ -316,11 +316,13 @@
       <p>The buttons on the results page are the same. The rows are not.</p>
       <table>
         <tr><th>Entity</th><th>One row is</th><th>Look for</th></tr>
-        <tr><td>Companies</td><td>One company</td><td>Website, location, product, contacts, hiring, job postings, and why it was selected. APN and similar-company marks apply here.</td></tr>
+        <tr><td>Companies</td><td>One company</td><td>Website, location, product, contacts, Active Hiring, BD Signals when the request asked for them, and, when that column is on, saved job postings. APN and similar-company marks apply here. Open a company for its contact list. Recommended contacts are listed first. The list does not show a rank number. <strong>Show more</strong> opens the rest of the saved contacts on this screen and does not search again.</td></tr>
         <tr><td>People</td><td>One person</td><td>Company, title, location, profile, and contact fields. If APN is not connected, the status says so and the person row still stays in the list.</td></tr>
         <tr><td>Jobs</td><td>One open posting</td><td>Employer, title, location, date, source, and whether the posting is still open. The employer is kept separate from the page that published the job.</td></tr>
       </table>
       <div class="note"><strong>LinkedIn on a company row is not a separate LinkedIn login.</strong> Company LinkedIn, LinkedIn People, and LinkedIn Insight are fields on the row. People and Insight values come from saved snapshots. A public LinkedIn page can also be found during search. You do not connect a LinkedIn API to use the current project.</div>
+      <div class="note"><strong>Active Hiring and Job postings are different.</strong> Active Hiring is the hiring check. Job postings are saved links. A cell that says “saved postings · stale”, and a line that says “Checked … · not current”, means the last check is too old to call the posting current. The number is how many were saved, not how many are open now. Refresh and Enrich do not reopen those links. A dead link can remain until a later check is run outside this manual.</div>
+      <div class="note"><strong>Contacts on a company.</strong> The paper-plane icon opens outreach for that person. Unlock, when it is shown, looks up that person’s email or phone and can spend Apollo credits. Find more contacts, inside the company panel, looks for more people in the functions this project needs. It can spend credits and still add no usable contact. It is not the same button as Find more on the project toolbar.</div>
       <div class="check"><strong>Check</strong>A company row can be opened to its evidence and contacts. A people row is one person. A jobs row is one posting, with the employer named separately from the source page.</div>
     </section>
 
@@ -336,7 +338,7 @@
       <table>
         <tr><th>Method</th><th>What it rechecks</th></tr>
         <tr><td>Smart Refresh</td><td>Missing, stale, or unverified fields. Recently verified data is reused. This is the default.</td></tr>
-        <tr><td>Selected fields</td><td>Only the fields you tick. On a company project those include Website, Company LinkedIn, Core product, Industry, Location, Founded date, Company size, Contacts, Active Hiring, and Job postings.</td></tr>
+        <tr><td>Selected fields</td><td>Only the fields you tick. On a company project those include Website, Company LinkedIn, Core product, Industry, Location, Founded date, Company size, Contacts, Active Hiring, BD Signals, and Job postings. Ticking Job postings does not reopen saved links or change a “stale” or “not current” label.</td></tr>
         <tr><td>Full Refresh</td><td>Every supported core field. This takes longer and can use more provider requests.</td></tr>
       </table>
       <figure>
@@ -351,7 +353,7 @@
           <span class="see">The rows stay. Flags, outreach, notes, filters, columns, and enrichment columns stay. A selected field can change. The other fields stay.</span></li>
       </ol>
       <h3>Find more</h3>
-      <p><strong>Find more</strong> is on the results toolbar, to the left of Enrich. It has no setup dialog. Selecting it starts a search for up to 10 more records of the same entity. While it is running, the same button stops it. If you stop it, the rows already saved stay, and the project status says the stop preserved them.</p>
+      <p><strong>Find more</strong> is on the results toolbar, to the left of Enrich. It has no setup dialog. Selecting it starts a search for up to 10 more records of the same entity. While it is running, the same button stops it. If you stop it, the rows already saved stay, and the project status says the stop preserved them. On a company, <strong>Find more contacts</strong> is a separate action in the company panel. It searches for more saved contacts and can use Apollo credits without adding a person you can reach.</p>
       <h3>Enrich</h3>
       <figure>
         <img src="manual-assets/enrich.png" alt="Enrich data dialog with column name, data type, and AI instructions" />
