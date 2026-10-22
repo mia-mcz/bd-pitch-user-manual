@@ -75,6 +75,7 @@
       border-radius: 12px;
       display: block;
     }
+    figure.panel img { width: auto; max-width: 520px; }
     figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; }
     ol.steps { margin: 8px 0 0; padding-left: 22px; }
     ol.steps li { margin: 0 0 12px; }
@@ -114,7 +115,7 @@
       <div class="eyebrow">BD Pitch</div>
       <h1>User manual</h1>
       <p>Use this guide to create a lead list, review what came back, and decide when the project is finished. The same steps are the acceptance path: each action says what you should see.</p>
-      <p class="meta">Open the product at <a href="https://bd-opportunity-dashboard.vercel.app/index.html">bd-opportunity-dashboard.vercel.app</a>. Reviewed 10 October 2026. Updated 20 October 2026 against the deployed product. Screenshots are from the 10 October review and were kept. Where the text and a screenshot differ, follow the text.</p>
+      <p class="meta">Open the product at <a href="https://bd-opportunity-dashboard.vercel.app/index.html">bd-opportunity-dashboard.vercel.app</a>. Reviewed 10 October 2026. Updated 20 October 2026 against the deployed product. The company contact list, shown before outreach, was added 22 October 2026. Earlier screenshots are from the 10 October review and were kept. Where the text and a screenshot differ, follow the text.</p>
       <nav class="toc">
         <a href="#start">1. Start here</a>
         <a href="#list">2. Find a project</a>
@@ -322,7 +323,20 @@
       </table>
       <div class="note"><strong>LinkedIn on a company row is not a separate LinkedIn login.</strong> Company LinkedIn, LinkedIn People, and LinkedIn Insight are fields on the row. People and Insight values come from saved snapshots. A public LinkedIn page can also be found during search. You do not connect a LinkedIn API to use the current project.</div>
       <div class="note"><strong>Active Hiring and Job postings are different.</strong> Active Hiring is the hiring check. Job postings are saved links. A cell that says “saved postings · stale”, and a line that says “Checked … · not current”, means the last check is too old to call the posting current. The number is how many were saved, not how many are open now. Refresh and Enrich do not reopen those links. A dead link can remain until a later check is run outside this manual.</div>
-      <div class="note"><strong>Contacts on a company.</strong> The paper-plane icon opens outreach for that person. Unlock, when it is shown, looks up that person’s email or phone. It can use credits and can return no additional email or phone. Find more contacts, inside the company panel, looks for more people in the functions this project needs. It can use credits and still add fewer contacts than expected, including none you can reach. It is not the same button as Find more on the project toolbar.</div>
+      <h3 id="contacts">Contacts on a company</h3>
+      <p>Open a company name. The company panel shows the saved people before outreach. Read this list first. The paper plane is the next step, not the first screen.</p>
+      <figure class="panel">
+        <img src="manual-assets/company-contact-list.png" alt="Company panel contact list headed 5 contacts, 4 recommended, with a function filter and one row per person" />
+        <figcaption>The red outline is only in this guide. It marks the saved contact rows. The heading above it is the saved count and the recommended count.</figcaption>
+      </figure>
+      <ul>
+        <li>The heading reads like “5 contacts · 4 recommended.” Recommended people are listed first. Rank numbers are not shown.</li>
+        <li><strong>All functions</strong> can be changed to one function. That only narrows this saved list. It does not start a search.</li>
+        <li>Each row is one person: name, then title. LinkedIn opens that profile. The mail icon shows an email that is already saved. It does not look up a new one.</li>
+        <li>The lock, when a row has one, is <strong>Unlock</strong>. It looks up that one contact. It can use credits, and it can return no additional email or phone. The row stays.</li>
+        <li>The list opens with up to five contacts. <strong>Show more</strong> reveals the rest on this screen. <strong>Find more contacts</strong>, when it is shown, is a separate search and can use credits. It is not the Find more button on the project toolbar.</li>
+        <li>The paper plane opens outreach for that person. It does not send a message. Outreach itself is in <a href="#work">Work the list</a>.</li>
+      </ul>
       <div class="check"><strong>Check</strong>A company row can be opened to its evidence and contacts. A people row is one person. A jobs row is one posting, with the employer named separately from the source page.</div>
     </section>
 
